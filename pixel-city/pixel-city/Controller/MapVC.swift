@@ -32,6 +32,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var collectionView: UICollectionView?
     
     var imageUrlArray = [String]()
+    var imageArray = [UIImage]()
     
     
     override func viewDidLoad() {
@@ -57,10 +58,11 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    func addSwip(){
+    func addSwipe(){
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(animateViewDown))
         swipe.direction = .down
         pullUpView.addGestureRecognizer(swipe)
+        //collectionView?.addGestureRecognizer(swipe)
     }
     
     @objc func animateViewDown(){
@@ -68,6 +70,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         UIView.animate(withDuration: 0.3){
             self.view.layoutIfNeeded()
         }
+        cancelAllSessions()
     }
     
     func animateViewUp(){
@@ -95,7 +98,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     func addProgressLbl(){
         progresseLbl = UILabel()
         progresseLbl?.frame = CGRect(x: (screenSize.width / 2) - 120 , y: 175, width: 240, height: 40)
-        progresseLbl?.font = UIFont(name: "Avenir Next", size: 18)
+        progresseLbl?.font = UIFont(name: "Avenir Next", size: 14)
         progresseLbl?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         progresseLbl?.textAlignment = .center
         collectionView?.addSubview(progresseLbl!)
@@ -123,12 +126,15 @@ extension MapVC: MKMapViewDelegate {
     }
     
     @objc func dropPin(sender: UITapGestureRecognizer){
+        
+        cancelAllSessions()
+        
         removePin()
         removeSpinner()
         removeProgressLbl()
         
         animateViewUp()
-        addSwip()
+        addSwipe()
         addSpinner()
         addProgressLbl()
         
@@ -143,8 +149,16 @@ extension MapVC: MKMapViewDelegate {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(touchCoordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
         
-        retrieveUrls(forAnnotation: annotation) { (true) in
-            print(self.imageUrlArray)
+        retrieveUrls(forAnnotation: annotation) { (finished) in
+            if finished {
+                self.retrieveImages(handler: { (finiched) in
+                    if finished {
+                        self.removeSpinner()
+                        self.removeProgressLbl()
+                        //reload collectionView
+                    }
+                })
+            }
         }
     }
     
@@ -169,7 +183,29 @@ extension MapVC: MKMapViewDelegate {
             }
             handler(true)
         }
+    }
+    
+    func retrieveImages(handler: @escaping (_ status: Bool) -> () ){
+        imageArray = []
         
+        for url in imageUrlArray {
+            Alamofire.request(url).responseImage(completionHandler: { (response) in
+                guard let image = response.result.value else { return }
+                self.imageArray.append(image)
+                self.progresseLbl?.text = "\(self.imageArray.count)/40 IMAGES DOWNLOADED"
+                
+                if self.imageArray.count == self.imageUrlArray.count {
+                    handler(true)
+                }
+            })
+        }
+    }
+    
+    func cancelAllSessions(){
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach( { $0.cancel() })
+            downloadData.forEach( { $0.cancel() })
+        }
     }
     
 }
