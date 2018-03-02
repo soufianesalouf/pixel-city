@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		178C352C5BA3DA3FAE58C723 /* Pods_pixel_city.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330D59106FA9386F1BF9A28E /* Pods_pixel_city.framework */; };
+		909F91E12048F8FA00B71CEB /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909F91E02048F8FA00B71CEB /* DroppablePin.swift */; };
 		90AA66012048B24C00469C0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AA66002048B24C00469C0F /* AppDelegate.swift */; };
 		90AA66032048B24C00469C0F /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AA66022048B24C00469C0F /* MapVC.swift */; };
 		90AA66062048B24C00469C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90AA66042048B24C00469C0F /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		330D59106FA9386F1BF9A28E /* Pods_pixel_city.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pixel_city.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		909F91E02048F8FA00B71CEB /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		90AA65FD2048B24C00469C0F /* pixel-city.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pixel-city.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90AA66002048B24C00469C0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90AA66022048B24C00469C0F /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		90AA66132048B2B000469C0F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				909F91E02048F8FA00B71CEB /* DroppablePin.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90AA66032048B24C00469C0F /* MapVC.swift in Sources */,
+				909F91E12048F8FA00B71CEB /* DroppablePin.swift in Sources */,
 				90AA66012048B24C00469C0F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,7 +403,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WZ7Q2M29G8;
 				INFOPLIST_FILE = "pixel-city/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.saloufapps.pixel-city";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -415,7 +422,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WZ7Q2M29G8;
 				INFOPLIST_FILE = "pixel-city/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.saloufapps.pixel-city";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
