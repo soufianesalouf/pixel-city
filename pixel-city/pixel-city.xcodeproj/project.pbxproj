@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		178C352C5BA3DA3FAE58C723 /* Pods_pixel_city.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330D59106FA9386F1BF9A28E /* Pods_pixel_city.framework */; };
 		9006DF622049B81100E2ECFA /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9006DF612049B81100E2ECFA /* PhotoCell.swift */; };
+		9006DF642049BF1A00E2ECFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9006DF632049BF1A00E2ECFA /* Constants.swift */; };
 		909F91E12048F8FA00B71CEB /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909F91E02048F8FA00B71CEB /* DroppablePin.swift */; };
 		90AA66012048B24C00469C0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AA66002048B24C00469C0F /* AppDelegate.swift */; };
 		90AA66032048B24C00469C0F /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AA66022048B24C00469C0F /* MapVC.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		330D59106FA9386F1BF9A28E /* Pods_pixel_city.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pixel_city.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9006DF612049B81100E2ECFA /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		9006DF632049BF1A00E2ECFA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		909F91E02048F8FA00B71CEB /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		90AA65FD2048B24C00469C0F /* pixel-city.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pixel-city.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90AA66002048B24C00469C0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		90AA66152048B2D400469C0F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9006DF632049BF1A00E2ECFA /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9006DF642049BF1A00E2ECFA /* Constants.swift in Sources */,
 				9006DF622049B81100E2ECFA /* PhotoCell.swift in Sources */,
 				90AA66032048B24C00469C0F /* MapVC.swift in Sources */,
 				909F91E12048F8FA00B71CEB /* DroppablePin.swift in Sources */,
