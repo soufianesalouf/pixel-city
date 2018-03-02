@@ -18,10 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcr-BB-scD">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcr-BB-scD">
+                                <rect key="frame" x="0.0" y="20" width="375" height="646"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93U-re-nHY">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93U-re-nHY" userLabel="barView">
                                 <rect key="frame" x="0.0" y="20" width="375" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Douple-tap to drop a pin and view photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqi-AN-ZED">
@@ -43,7 +43,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rA0-Uj-m27">
-                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <rect key="frame" x="309" y="596" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="9nW-Aq-0cK"/>
                                     <constraint firstAttribute="height" constant="50" id="Vei-nb-nFH"/>
@@ -53,20 +53,23 @@
                                     <action selector="centerMapBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hrF-sI-Jcn"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A8f-Kf-vgi">
-                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8f-Kf-vgi">
+                                <rect key="frame" x="0.0" y="666" width="375" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="CkJ-5I-j7j"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="A8f-Kf-vgi" secondAttribute="trailing" id="2Yp-H8-5Vg"/>
                             <constraint firstItem="93U-re-nHY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5ia-Rn-lZ1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rA0-Uj-m27" secondAttribute="bottom" constant="20" id="BM6-f0-JJY"/>
                             <constraint firstItem="qcr-BB-scD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DPm-jC-HhB"/>
                             <constraint firstItem="qcr-BB-scD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FTt-bg-oep"/>
                             <constraint firstItem="93U-re-nHY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Sfw-if-002"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="A8f-Kf-vgi" secondAttribute="bottom" id="gWf-la-toB"/>
+                            <constraint firstItem="A8f-Kf-vgi" firstAttribute="top" secondItem="rA0-Uj-m27" secondAttribute="bottom" constant="20" id="UO6-nE-SV0"/>
+                            <constraint firstAttribute="bottom" secondItem="A8f-Kf-vgi" secondAttribute="bottom" id="gWf-la-toB"/>
                             <constraint firstItem="A8f-Kf-vgi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hc5-oL-hXS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rA0-Uj-m27" secondAttribute="trailing" constant="16" id="mmu-oo-V9B"/>
                             <constraint firstItem="93U-re-nHY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="p26-Ij-eGV"/>
@@ -77,6 +80,8 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="qcr-BB-scD" id="scJ-8c-dGN"/>
+                        <outlet property="pullUpView" destination="A8f-Kf-vgi" id="QLG-9F-gbd"/>
+                        <outlet property="pullUpViewHeightConstraint" destination="CkJ-5I-j7j" id="lUQ-gh-jdb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
