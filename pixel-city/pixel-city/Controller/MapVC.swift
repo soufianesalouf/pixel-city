@@ -180,7 +180,7 @@ extension MapVC: MKMapViewDelegate {
     }
     
     func retrieveUrls(forAnnotation annotation: DroppablePin, handler: @escaping (_ status: Bool) -> ()){
-            Alamofire.request(flinckUrl(forApiKey: API_KEY, withAnnotation: annotation, andNumberOfPhotos: 4)).responseJSON { (response) in
+            Alamofire.request(flinckUrl(forApiKey: API_KEY, withAnnotation: annotation, andNumberOfPhotos: 40)).responseJSON { (response) in
             guard let json = response.result.value as? Dictionary<String, AnyObject> else { return }
             
             let photoDict = json["photos"] as! Dictionary<String, AnyObject>
